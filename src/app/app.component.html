@@ -1,0 +1,6 @@
+<div class="container">
+  <div class="block">
+    <app-star-rating [maxScore]="5" [forDisplay]="false" (rateChanged)="onRateChange($event)"></app-star-rating>
+    <div>Rating: {{score}}</div>
+  </div>
+</div>
