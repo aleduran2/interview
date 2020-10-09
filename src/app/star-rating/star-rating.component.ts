@@ -3,14 +3,13 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 @Component({
   selector: 'app-star-rating',
   templateUrl: './star-rating.component.html',
-  styleUrls: ['./star-rating.component.sass']
+  styleUrls: ['./star-rating.component.scss']
 })
 export class StarRatingComponent implements OnInit {
-
-  @Input() score;
+  @Input() score: number;
 	@Input() maxScore = 5;
-	@Input() forDisplay = false;
-	@Output() rateChanged = new EventEmitter();
+
+  @Output() rateChanged = new EventEmitter();
 
   range = [];
   marked = -1;
@@ -29,27 +28,7 @@ export class StarRatingComponent implements OnInit {
     this.rateChanged.next(this.score);
   }
 
-  public isMarked = (index) => {
-    if (!this.forDisplay) {
-      if (index <= this.marked) {
-        return 'fa-star';
-      }
-      else {
-        return 'fa-star-o';
-      }
-    }
-    else {
-      if (this.score >= index + 1) {
-        return 'fa-star';
-      }
-      else if (this.score > index && this.score < index + 1) {
-        return 'fa-star-half-o';
-      }
-      else {
-        return 'fa-star-o';
-      }
-    }
+  public isMarked = (index: number) => {
+    return (index <= this.marked) ? 'fas fa-star' : 'far fa-star';
   }
-
-
 }
