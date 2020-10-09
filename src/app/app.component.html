@@ -1,9 +1,7 @@
 <div class="container">
   <h1>Star rating</h1>
-  <div class="section">
-    <div class="block">
-      <app-star-rating [maxScore]="5" (rateChanged)="onRateChange($event)"></app-star-rating>
-      <div>Rating: {{score}}</div>
-    </div>
+  <div>
+    <app-star-rating [maxScore]="5" (rateChanged)="onRateChange($event)"></app-star-rating>
+    <div>Rating: {{score}}</div>
   </div>
 </div>
